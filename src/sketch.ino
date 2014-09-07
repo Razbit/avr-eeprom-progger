@@ -1,20 +1,20 @@
 #include "shiftreg.h"
 
-/* pins of the shift registers */
-/* RST on the 164 tied to Vcc */
-#define ADDR_CLK 2 /* Address registers CLK pin */
-#define ADDR_DATAL 3 /* Low address register A+B pins */
-#define ADDR_DATAH 4 /* High address register A+B pins */
-#define DATA_CLK 5 /* Data register CLK pin */
-#define DATA_DATA 6 /* Data register A+B pins */
+/* pins of the shift registers
+ * RST on the 164s tied to the Arduino RST */
+#define ADDR_CLK 4 /* Address registers CLK pin */
+#define ADDRL 2 /* Low address register A+B pins */
+#define ADDRH 3 /* High address register A+B pins */
+#define CHIP_ENABLE A0 /* The /CE pin of the memory chip */
+#define OUT_ENABLE A2/* The /OE pin of the memory chip */
+#define WRITE_ENABLE A1/*the /WE pin of the memory chip */
+
 
 Shiftreg16* addr;
-Shiftreg8* data;
 
 void setup()
 {
 	addr = new Shiftreg16(ADDR_CLK, ADDR_DATAL, ADDR_DATAH);
-	data = new Shiftreg8(DATA_CLK, DATA_DATA);
 }
 
 void loop()
