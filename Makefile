@@ -1,5 +1,3 @@
-HDRS := $(wildcard src/*.h)
-
 all:
 	ino build
 
