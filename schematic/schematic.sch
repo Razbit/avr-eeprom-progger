@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="dots" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -1755,6 +1755,7 @@ Source: http://www.3M.com/ehpd</description>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="X1" library="con-subd" deviceset="F09" device="H" value="RS232"/>
 <part name="ZX1" library="con-3m" deviceset="228-?00-0602J" device="1277-" value="ZIF28"/>
+<part name="GND3" library="supply1" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -1770,6 +1771,7 @@ Source: http://www.3M.com/ehpd</description>
 <instance part="GND2" gate="1" x="66.04" y="27.94"/>
 <instance part="X1" gate="G$1" x="43.18" y="60.96" rot="R180"/>
 <instance part="ZX1" gate="G$1" x="175.26" y="50.8"/>
+<instance part="GND3" gate="1" x="53.34" y="53.34"/>
 </instances>
 <busses>
 <bus name="A[0..18],D[0..7],/CE,/WE,/OE">
@@ -1798,7 +1800,7 @@ Source: http://www.3M.com/ehpd</description>
 </net>
 <net name="N$2" class="0">
 <segment>
-<wire x1="119.38" y1="2.54" x2="119.38" y2="30.48" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="22.86" x2="119.38" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="IC2" gate="A" pin="CLR"/>
 <wire x1="119.38" y1="30.48" x2="124.46" y2="30.48" width="0.1524" layer="91"/>
 <pinref part="IC1" gate="A" pin="CLR"/>
@@ -1807,8 +1809,8 @@ Source: http://www.3M.com/ehpd</description>
 <junction x="119.38" y="30.48"/>
 <pinref part="MCU1" gate="G$1" pin="RST@2"/>
 <wire x1="68.58" y1="45.72" x2="60.96" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="45.72" x2="60.96" y2="2.54" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="2.54" x2="119.38" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="45.72" x2="60.96" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="22.86" x2="119.38" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -1867,6 +1869,12 @@ Source: http://www.3M.com/ehpd</description>
 <wire x1="162.56" y1="30.48" x2="162.56" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="33.02" x2="165.1" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="ZX1" gate="G$1" pin="14"/>
+</segment>
+<segment>
+<pinref part="X1" gate="G$1" pin="5"/>
+<pinref part="GND3" gate="1" pin="GND"/>
+<wire x1="50.8" y1="66.04" x2="53.34" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="66.04" x2="53.34" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$29" class="0">
